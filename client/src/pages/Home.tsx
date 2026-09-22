@@ -201,20 +201,26 @@ export default function Home() {
         {mobileMenu && <div className="border-t-[3px] border-[#191919] px-4 py-3 md:hidden"><div className="flex gap-2"><button onClick={() => { setShowHistory(true); setMobileMenu(false); }} className="brutal-button bg-white"><History className="h-4 w-4" /> HISTORY</button><button onClick={() => { setShowLibrary(true); setMobileMenu(false); }} className="brutal-button bg-[#69e8c5]"><Library className="h-4 w-4" /> LIBRARY</button></div></div>}
       </header>
 
-      <main className="mx-auto max-w-[1500px] px-4 pb-16 pt-7 md:px-8 md:pt-10">
-        <div className="mb-8 grid gap-7 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+      <main className="mx-auto max-w-[1500px] px-4 pb-12 pt-6 md:px-8 md:pt-8">
+        <div className="mb-6 grid gap-5 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
-            <div className="mb-4 flex items-center gap-2 font-mono text-xs font-black uppercase tracking-[0.16em]"><span className="inline-block h-2.5 w-2.5 bg-[#ff6b54]" /> {todayLabel()} <span className="text-black/40">/</span> RESET 00{Math.max(step, 1)}</div>
-            <h1 className="font-display max-w-5xl text-5xl font-black uppercase leading-[0.86] tracking-[-0.065em] sm:text-7xl lg:text-[7.3rem]">Make space.<br /><span className="text-[#ff6b54]">Make a move.</span></h1>
+            <div className="mb-3 flex items-center gap-2 font-mono text-[10px] font-black uppercase tracking-[0.16em]"><span className="inline-block h-2 w-2 bg-[#ff6b54]" /> {todayLabel()} <span className="text-black/40">/</span> RESET 00{Math.max(step, 1)}</div>
+            <h1 className="font-display max-w-4xl text-4xl font-black uppercase leading-[0.88] tracking-[-0.06em] sm:text-6xl lg:text-[5.8rem]">Make space.<br /><span className="text-[#ff6b54]">Make a move.</span></h1>
           </div>
-          <div className="max-w-md justify-self-end border-[3px] border-[#191919] bg-[#191919] p-5 text-[#f6f2e8] shadow-[8px_8px_0_#ff6b54]">
+          <div className="max-w-md justify-self-end border-[3px] border-[#191919] bg-[#191919] p-4 text-[#f6f2e8] shadow-[6px_6px_0_#ff6b54]">
             <div className="mb-2 flex items-center gap-2 font-mono text-[10px] font-bold tracking-[0.18em] text-[#69e8c5]"><Sparkles className="h-4 w-4" /> THE RULE</div>
-            <p className="font-display text-xl font-black leading-tight">You do not need a new life. You need one visible next action.</p>
-            <p className="mt-3 font-mono text-[10px] leading-relaxed text-white/65">TidyUp is a local-first reset tool for when your brain is loud and the starting line is blurry.</p>
+            <p className="font-display text-lg font-black leading-tight">You do not need a new life. You need one visible next action.</p>
+            <p className="mt-2 font-mono text-[9px] leading-relaxed text-white/65">TidyUp is a local-first reset tool for when your brain is loud and the starting line is blurry.</p>
           </div>
         </div>
 
-        <section className="mb-7 grid gap-4 md:grid-cols-4">
+        <section className="mb-5 grid gap-3 border-y-[3px] border-[#191919] py-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="flex items-center justify-between gap-3 border-b-2 border-[#191919]/15 pb-2 sm:border-b-0 sm:border-r-2 sm:pb-0 lg:col-span-2"><span className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-black/55">WORK MODE</span><span className="font-display text-lg font-black">RESET ON</span></div>
+          <div className="flex items-center justify-between gap-3 border-b-2 border-[#191919]/15 pb-2 sm:border-b-0 sm:border-r-2 sm:pb-0 lg:col-span-2"><span className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-black/55">ACTIVE ITEMS</span><span className="font-display text-lg font-black">{inbox.length}</span></div>
+          <div className="flex items-center justify-between gap-3 sm:col-span-1"><span className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-black/55">MOMENTUM</span><span className="font-display text-lg font-black text-[#ff6b54]">{completedCount > 0 ? "BUILDING" : "READY"}</span></div>
+        </section>
+
+        <section className="mb-6 grid gap-3 md:grid-cols-4">
           {stateOptions.map((option) => (
             <button key={option.key} onClick={() => { setActiveState(option.key); startReset(); }} className={`state-card ${option.className} ${activeState === option.key ? "state-card-active" : ""}`}>
               <div className="flex items-start justify-between"><span className="font-mono text-[10px] font-black tracking-[0.16em]">{option.accent === "coral" ? "01" : option.accent === "mint" ? "02" : option.accent === "lavender" ? "03" : "04"}</span><ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></div>
@@ -229,7 +235,7 @@ export default function Home() {
               <div><div className="font-mono text-[10px] font-black tracking-[0.16em]">CURRENT RESET / {String(step).padStart(2, "0")}</div><h2 className="mt-2 font-display text-3xl font-black uppercase leading-none tracking-tight">{step === 0 ? "Pick your starting point" : step === 1 ? "Regulate first" : step === 2 ? "Get it out of your head" : step === 3 ? "Protect the start" : step === 4 ? "Close the loop" : "You made a move"}</h2></div>
               {step > 0 && <button className="icon-button bg-white" onClick={() => setStep((value) => Math.max(0, value - 1))} aria-label="Back"><ChevronLeft className="h-5 w-5" /></button>}
             </div>
-            <div className="p-5 md:p-7">
+            <div className="p-4 md:p-6">
               {step === 0 && <div className="grid gap-5 md:grid-cols-[1fr_0.7fr] md:items-center"><div><p className="max-w-xl text-lg font-semibold leading-snug">Pick the sentence that sounds most like your brain right now. We’ll give you the shortest useful route out.</p><button onClick={startReset} className="brutal-button mt-6 bg-[#f7d447] text-base">START A 3-MINUTE RESET <ArrowRight className="h-5 w-5" /></button></div><div className="relative border-[3px] border-[#191919] bg-[#f6f2e8] p-5"><div className="absolute -right-3 -top-3 rotate-3 border-[3px] border-[#191919] bg-[#ff6b54] px-2 py-1 font-mono text-[10px] font-black">NO PERFORMANCE REQUIRED</div><div className="font-display text-5xl font-black leading-none">0<span className="text-[#ff6b54]">→</span>1</div><div className="mt-2 font-mono text-[10px] font-bold leading-relaxed">The goal is not to fix everything.<br />The goal is to change the next minute.</div></div></div>}
 
               {step === 1 && <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center"><div className="breath-orbit"><div className="breath-core"><div className="font-mono text-[10px] font-black tracking-[0.16em]">BREATHE</div><div className="mt-2 font-display text-4xl font-black">4 / 6</div><div className="font-mono text-[9px] font-bold">IN / OUT × 6</div></div></div><div><div className="font-display text-3xl font-black uppercase leading-none">Lower the volume.</div><p className="mt-3 max-w-md text-sm font-semibold leading-relaxed">Feet on the floor. Jaw loose. Inhale for 4, exhale for 6. If focusing on your breath feels uncomfortable, use your senses instead.</p><div className="mt-5 flex flex-wrap gap-2"><button onClick={() => setStep(2)} className="brutal-button bg-[#69e8c5]">I FEEL 1% MORE HERE <ArrowRight className="h-4 w-4" /></button><button onClick={() => setStep(2)} className="brutal-button bg-white">USE 5-4-3-2-1</button></div></div></div>}
