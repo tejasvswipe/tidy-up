@@ -1,33 +1,32 @@
-
 # TidyUp
 
 > A local-first reset tool for noisy brains and hard starts: turn mental clutter into one calm, visible next action.
 
 TidyUp is a focused productivity web app for moments when planning feels harder than starting. It guides you through a short reset: choose how you are feeling, regulate or ground yourself, capture loose ends, select one tiny action, and protect the first few minutes with a timer.
+## workfloww
+### Features
 
-## Features
-
-- **State-matched starting points** — Choose Scattered, Anxious, Avoiding, or Just Start.
-- **Guided RESET flow** — Regulate, Externalize, Select, Engage, and Transition.
-- **Breathing and grounding options** — Use the 4/6 breathing prompt or the 5-4-3-2-1 senses-based alternative.
-- **Loose-end capture** — Add multiple thoughts at once by placing each one on a new line.
-- **One visible next action** — Turn an overwhelming task into a small, concrete first step.
-- **Focus timer** — Choose a 5-, 15-, or 25-minute focus session.
-- **Distraction parking** — Save distracting thoughts in a “Not now” note.
-- **Reset history** — Track whether you Started, Partly started, or have Not started yet.
-- **Curated video library** — Quickly open selected grounding, breathing, and body-doubling videos.
-- **Local-first storage** — No account or sign-in is required.
-- **Keyboard shortcuts** — Quickly navigate the app without relying only on the mouse.
+- **State-matched starting points**  Choose Scattered, Anxious, Avoiding, or Just Start.
+- **Guided RESET flow**  Regulate, Externalize, Select, Engage, and Transition.
+- **Breathing and grounding options**  Use the 4/6 breathing prompt or the 5-4-3-2-1 senses-based alternative.
+- **Loose-end capture**  Add multiple thoughts at once by placing each one on a new line.
+- **One visible next action**  Turn an overwhelming task into a small, concrete first step.
+- **Focus timer**  Choose a 5-, 15-, or 25-minute focus session.
+- **Distraction parking**  Save distracting thoughts in a Not now note.
+- **Reset history**  Track whether you Started, Partly started, or have Not started yet.
+- **Curated video library**  Quickly open selected grounding, breathing, and body-doubling videos.
+- **Local-first storage**  No account or sign-in is required.
+- **Keyboard shortcuts**  Quickly navigate the app without relying only on the mouse.
 
 ## The RESET Method
 
 TidyUp uses a five-step reset process:
 
-1. **Regulate** — Lower the mental noise with breathing or grounding.
-2. **Externalize** — Move open loops out of your head and into the inbox.
-3. **Select** — Choose one task and define the smallest visible action.
-4. **Engage** — Start a protected focus session.
-5. **Transition** — Record what happened and decide what comes next.
+1. **Regulate**  Lower the mental noise with breathing or grounding.
+2. **Externalize**  Move open loops out of your head and into the inbox.
+3. **Select**  Choose one task and define the smallest visible action.
+4. **Engage**  Start a protected focus session.
+5. **Transition**  Record what happened and decide what comes next.
 
 > You do not have to finish everything. You only have to make the next move visible.
 
@@ -108,25 +107,25 @@ pnpm format    # Format the project with Prettier
 
 ```text
 .
-├── client/
-│   ├── index.html
-│   └── src/
-│       ├── pages/
-│       │   ├── Home.tsx
-│       │   └── NotFound.tsx
-│       ├── components/
-│       ├── contexts/
-│       ├── hooks/
-│       ├── index.css
-│       └── main.tsx
-├── server/
-│   └── index.ts
-├── shared/
-├── PRD.md
-├── package.json
-├── pnpm-lock.yaml
-├── tsconfig.json
-└── vite.config.ts
+ client/
+    index.html
+    src/
+        pages/
+           Home.tsx
+           NotFound.tsx
+        components/
+        contexts/
+        hooks/
+        index.css
+        main.tsx
+ server/
+    index.ts
+ shared/
+ PRD.md
+ package.json
+ pnpm-lock.yaml
+ tsconfig.json
+ vite.config.ts
 ```
 
 ## Data and Privacy
